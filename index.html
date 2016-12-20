@@ -3,27 +3,71 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Julefrokost</title>
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style>
         html, body {
             height: 100%;
+            margin: 0;
         }
-        #countdowntimer {
-            display: flex;
+        #flexbox {
             flex-direction: column;
+            display: flex;
             height: 100%;
+        }
+        #quicktimers {
+            flex: 1;
+            display: flex;
+        }
+        #timer {
+            flex: 5;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 150px;
+        }
+        .quicktimer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
 
-            font-size: 3em;
+            color: white;
+            background-color: blue;
+            font-size: 20px;
+
+            border-bottom: 2px solid gray;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="countdowntimer">
-        Countdown timer
+    <div id="flexbox">
+        <div id="quicktimers">
+            <div class="quicktimer box1">
+                Quick 5
+            </div>
+            <div class="quicktimer box2">
+                Quick 10
+            </div>
+            <div class="quicktimer box3">
+                30 minutters fokus
+            </div>
+            <div class="quicktimer box4">
+                1 times fokus
+            </div>
+            <div class="quicktimer box5">
+                Bordtennis
+            </div>
+            <div class="quicktimer box6">
+                <span id="customtext">Noget andet</span>
+                <input type="text" name="customlength" id="customlength" style="display: none">
+            </div>
+        </div>
+        <div id="timer">
+            0:00
+        </div>
     </div>
     <script src="./compiled/main.js"></script>
 </body>
