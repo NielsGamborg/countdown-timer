@@ -19,12 +19,22 @@
             flex: 1;
             display: flex;
         }
+        @media only screen and (max-width: 800px) {
+            #quicktimers {
+                display: none;
+            }
+        }
         #timer {
             flex: 5;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 150px;
+            font-size: 200px;
+        }
+        @media only screen and (max-width: 500px) {
+            #timer {
+                font-size: 80px;
+            }
         }
         .quicktimer {
             width: 100%;
@@ -35,9 +45,9 @@
 
             color: white;
             background-color: blue;
-            font-size: 20px;
+            font-size: 30px;
 
-            border-bottom: 2px solid gray;
+            border-bottom: 3px solid gray;
             cursor: pointer;
         }
     </style>
