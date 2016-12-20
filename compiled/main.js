@@ -17,6 +17,7 @@ function timer(seconds) {
         displayTimeLeft(timeLeft);
         if (timeLeft === 0) {
             clearInterval(timerInterval);
+            createjs.Sound.play("bell");
             return;
         }
     }, 1000);
@@ -48,6 +49,7 @@ other.addEventListener('mouseleave', function () {
 });
 customlength.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
-        registerTimer(parseInt(customlength.value));
+        registerTimer(parseInt(customlength.value) * 60);
     }
 });
+createjs.Sound.registerSound("bell.mp3", "bell");

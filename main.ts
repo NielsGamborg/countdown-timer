@@ -8,6 +8,7 @@ const other = document.querySelector(".box6");
 const customtext = document.querySelector("#customtext");
 const customlength = document.querySelector("#customlength");
 
+declare var createjs: any;
 let runningTimer: number;
 
 function timer(seconds: number) {
@@ -21,6 +22,8 @@ function timer(seconds: number) {
 
         if (timeLeft === 0) {
             clearInterval(timerInterval);
+            createjs.Sound.play("bell");
+            
             return;
         }
     }, 1000);
@@ -59,7 +62,10 @@ other.addEventListener('mouseleave', () => {
 
 customlength.addEventListener('keyup', (event: Event) => {
     if ((<KeyboardEvent>event).keyCode === 13) {
-        registerTimer(parseInt((<HTMLInputElement>customlength).value));
+        registerTimer(
+        parseInt((<HTMLInputElement>customlength).value) * 60
+        );
     }
 })
 
+createjs.Sound.registerSound("bell.mp3", "bell");
