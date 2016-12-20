@@ -1,3 +1,4 @@
+var body = document.querySelector("body");
 var countdownTimerDiv = document.querySelector("#timer");
 var quick5 = document.querySelector(".box1");
 var quick10 = document.querySelector(".box2");
@@ -18,6 +19,7 @@ function timer(seconds) {
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             createjs.Sound.play("bell");
+            body.style.backgroundColor = "green";
             return;
         }
     }, 1000);
@@ -31,6 +33,7 @@ function displayTimeLeft(seconds) {
     countdownTimerDiv.textContent = display;
 }
 function registerTimer(seconds) {
+    body.style.backgroundColor = "white";
     clearInterval(runningTimer);
     runningTimer = timer(seconds);
 }

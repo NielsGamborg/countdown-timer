@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const countdownTimerDiv = document.querySelector("#timer");
 const quick5 = document.querySelector(".box1");
 const quick10 = document.querySelector(".box2");
@@ -23,6 +24,7 @@ function timer(seconds: number) {
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             createjs.Sound.play("bell");
+            (<HTMLElement> body).style.backgroundColor = "green";
             
             return;
         }
@@ -40,6 +42,7 @@ function displayTimeLeft(seconds: number) {
 }
 
 function registerTimer(seconds: number) {
+    (<HTMLElement> body).style.backgroundColor = "white";
     clearInterval(runningTimer)
     runningTimer = timer(seconds)
 }
@@ -63,7 +66,7 @@ other.addEventListener('mouseleave', () => {
 customlength.addEventListener('keyup', (event: Event) => {
     if ((<KeyboardEvent>event).keyCode === 13) {
         registerTimer(
-        parseInt((<HTMLInputElement>customlength).value) * 60
+            parseInt((<HTMLInputElement>customlength).value) * 60
         );
     }
 })
